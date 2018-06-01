@@ -1,4 +1,9 @@
-Welcome to Dancer 2 on OpenShift V3!  It is currently [% timestamp %]
+<html>
+  <head><title>DemoApp</title>
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+  </head>
+<body>
+Welcome to Dancer 2.  It is currently [% timestamp %]
 <br>
 <br>
 <form action="/" method="post">
@@ -25,3 +30,5 @@ Email:
   </tr>
   [% END %]
 </table>
+</body>
+</html>
