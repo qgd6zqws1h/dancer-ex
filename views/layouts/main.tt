@@ -1,5 +1,8 @@
 <html>
-<head><title>DemoApp</title></head>
+  <head><title>DemoApp</title>
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+  </head>
+
 <body>
   <h1>DemoApp</h1>
   [% content %]

@@ -1,4 +1,15 @@
+Kjør opp lokal development-versjon med 
 
+    plackup -E development bin/app.psgi
+
+Dev MySQL-settings ligger i lib/inventory.pm
+
+Kjøre opp en lokal mysql/mariadb, og opprett / grant tilgang til databasen:
+
+    create database dancer2;
+    grant all on dancer2.* to 'dancer2'@'localhost' identified by 'dance-dance-revolution';
+    use dancer2;
+    source ./dancer2-southpark.sql
 
 <!-- toc -->
 

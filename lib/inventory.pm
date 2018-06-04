@@ -10,6 +10,15 @@ set layout => undef;
 set views => File::Spec->rel2abs('./views');
 
 sub get_connection{
+    if ( defined $ENV{'PLACK_ENV'} && $ENV{'PLACK_ENV'} eq 'development' ) {
+	$ENV{'DATABASE_SERVICE_NAME'}="DEVMYSQL";
+	$ENV{'DEVMYSQL_SERVICE_HOST'}='127.0.0.1';
+	$ENV{'DEVMYSQL_SERVICE_PORT'}='3306';
+	$ENV{'MYSQL_DATABASE'}='dancer2';
+	$ENV{'MYSQL_USER'}='dancer2';
+	$ENV{'MYSQL_PASSWORD'}='dance-dance-revolution';
+    }
+
   my $service_name=uc $ENV{'DATABASE_SERVICE_NAME'};
   my $db_host=$ENV{"${service_name}_SERVICE_HOST"};
   my $db_port=$ENV{"${service_name}_SERVICE_PORT"};
