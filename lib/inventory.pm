@@ -33,7 +33,11 @@ sub init_db{
   eval { $dbh->do("DROP TABLE foo") };
 
   $dbh->do("CREATE TABLE foo (id INTEGER not null auto_increment, name VARCHAR(20), email VARCHAR(30), PRIMARY KEY(id))");
-  $dbh->do("INSERT INTO foo (name, email) VALUES (" . $dbh->quote("Eric") . ", " . $dbh->quote("eric\@example.com") . ")");
+  $dbh->do("INSERT INTO foo (name, email) VALUES (" . $dbh->quote("Eric Cartman") . $dbh->quote("Cartman\@SouthPark.com") . ")");
+  $dbh->do("INSERT INTO foo (name, email) VALUES (" . $dbh->quote("Stan March") . $dbh->quote("March\@SouthPark.com") . ")");
+  $dbh->do("INSERT INTO foo (name, email) VALUES (" . $dbh->quote("Kyle Broflovski") . $dbh->quote("Broflovski\@SouthPark.com") . ")");
+  $dbh->do("INSERT INTO foo (name, email) VALUES (" . $dbh->quote("Kenny McCormick") . $dbh->quote("Kenny\@SouthPark.com") . ")");
+
 };
 
 get '/user/:id' => sub {
