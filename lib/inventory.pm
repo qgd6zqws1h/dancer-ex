@@ -53,6 +53,15 @@ get '/user/:id' => sub {
     template user => {timestamp => $timestamp, data => $data};
 };
 
+get '/env' => sub {
+    my $htmlOutPut="<pre>\n";
+    foreach (sort keys %ENV ) {
+	$htmlOutPut.=sprintf("%-42s: %s\n","$_","$ENV{$_}");
+    }
+    $htmlOutPut.="\n</pre>\n";
+    return $htmlOutPut;
+};
+
 get '/' => sub {
 
     my $dbh = get_connection();
@@ -76,7 +85,7 @@ post '/' => sub {
    my $email = params->{email};
 
    my $dbh = get_connection();
-   
+   print "#DEBUG: name:'$name' email:'$email'\n";
    $dbh->do("INSERT INTO foo (name, email) VALUES (" . $dbh->quote($name) . ", " . $dbh->quote($email) . ") ");
 
    my $sth = $dbh->prepare("SELECT * FROM foo");
