@@ -1,6 +1,6 @@
 <html>
   <head><title>DemoApp</title>
-    <link href="/css/style.css" rel="stylesheet" type="text/css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
   </head>
 <body>
 Welcome to Dancer 2.  It is currently [% timestamp %]
@@ -30,5 +30,7 @@ Email:
   </tr>
   [% END %]
 </table>
+<hr>
+[% request.uri_base %]
 </body>
 </html>
